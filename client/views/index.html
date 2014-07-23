@@ -1,3 +1,11 @@
 <head>
   <title>jekpress</title>
 </head>
+
+<template name="home">
+  <ul>
+    {{#each pages}}
+      <p>{{name}}</p>
+    {{/each}}
+  </ul>
+</template>

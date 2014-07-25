@@ -1,5 +1,3 @@
-Template.navbar_template.pages = function () {
+Template.header.pages = function () {
   return Pages.find().fetch();
 };
-
-

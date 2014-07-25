@@ -1,22 +1,27 @@
+var topError = function (backgroundType, message) {
+  var paragraphSelector = '#information-paragraph';
+  
+  $(paragraphSelector).removeClass();
+  $(paragraphSelector).addClass(backgroundType);
+  $(paragraphSelector).text(message);
+};
+
 Template.admin.events({
-    'keyup #new-page-name': function (evt, template){
-        if (evt.which == 13){
-            if (template.find('#new-page-name').value.length > 2){
-                Meteor.call('verifyPageName', template.find('#new-page-name').value, function(err, res){
-                    if (res == 0) {
-                        Meteor.call('addPage', template.find("#new-page-name").value, function (err, res) {});
-                        template.find("#new-page-name").value = "";
-                        //Display success message
-                    }
-                    else{
-                        //Display error message
-                        console.log("It was not possible to add a new page")
-                    }
-                });                
-            }
-            else{
-                //Display error message saying page name is too small
-            }
-        }
-    }
+  'submit form': function (event) {
+    Meteor.call('addPage', $('#new-page-name').val(), function (err, res) {
+      if (err) {
+        console.log('An error occured adding a new page: ' + err);
+
+        $('#information-paragraph').addClass('bg-danger');
+        $('#information-paragraph').text(err);
+      } else {
+        $('#new-page-name').val('');
+
+        $('#information-paragraph').addClass('bg-success');
+        $('#information-paragraph').text('New page succesfully added');
+      }
+    });
+
+    event.preventDefault();
+  }
 });

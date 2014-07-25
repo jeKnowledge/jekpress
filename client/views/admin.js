@@ -12,13 +12,11 @@ Template.admin.events({
       if (err) {
         console.log('An error occured adding a new page: ' + err);
 
-        $('#information-paragraph').addClass('bg-danger');
-        $('#information-paragraph').text(err);
+        topError('bg-danger', err);
       } else {
         $('#new-page-name').val('');
 
-        $('#information-paragraph').addClass('bg-success');
-        $('#information-paragraph').text('New page succesfully added');
+        topError('bg-success', 'Página inserida com sucesso.');
       }
     });
 

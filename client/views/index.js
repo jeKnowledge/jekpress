@@ -1,3 +1,3 @@
-Template.header.pages = function () {
+Template.index = function () {
   return Pages.find().fetch();
 };

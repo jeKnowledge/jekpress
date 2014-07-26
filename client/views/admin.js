@@ -1,6 +1,6 @@
 var topError = function (backgroundType, message) {
   var paragraphSelector = '#information-paragraph';
-  
+
   $(paragraphSelector).removeClass();
   $(paragraphSelector).addClass(backgroundType);
   $(paragraphSelector).text(message);
@@ -22,23 +22,24 @@ Template.admin.events({
 
     event.preventDefault();
   },
+
   'submit #change-title-form': function (event) {
-      var newTitle = $('#new-website-title').val();
-      Meteor.call('changeTitle', newTitle, function(err, res) {
-          if (err) {
-              console.log('An error occured: ' + err);
+    var newTitle = $('#new-website-title').val();
 
-              topError('bg-danger', err);
-          }
-          else{
-              $('#new-website-title').val('');
+    Meteor.call('changeTitle', newTitle, function (err, res) {
+      if (err) {
+        console.log('An error occured: ' + err);
 
-              topError('bg-success', "Title changed successfully.");
+        topError('bg-danger', err);
+      } else {
+        $('#new-website-title').val('');
 
-              document.title = newTitle;
-          }
-      });
+        topError('bg-success', "Title changed successfully.");
 
-    event.preventDefault();      
-    }
+        document.title = newTitle;
+      }
+    });
+
+    event.preventDefault();
+  }
 });

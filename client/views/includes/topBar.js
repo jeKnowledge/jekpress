@@ -4,7 +4,7 @@ var siteInfoSub = Meteor.subscribe('site_info', function () {
   document.title = siteInfo.title;
 });
 
-Template.topBar.helpers({siteInfoSub: siteInfoSub});
+Template.topBar.helpers({ siteInfoSub: siteInfoSub });
 
 Meteor.subscribe('pages');
 

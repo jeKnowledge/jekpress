@@ -21,7 +21,7 @@ Meteor.methods({
     }
 
     if (titleSearch) {
-      SiteInfo.update({ _id: titleSearch._id} ,
+      SiteInfo.update({ _id: titleSearch._id },
                       { title : titleNew });
     } else {
       SiteInfo.insert({ title: titleNew });

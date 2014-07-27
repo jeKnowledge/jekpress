@@ -12,18 +12,19 @@ Meteor.methods({
 
     Pages.insert({ name: pageName });
   },
+
   changeTitle: function(titleNew) {
-      var titleSearch = Site_info.findOne();
+    var titleSearch = Site_info.findOne();
 
-      if (!titleNew) {
-          throw new Meteor.Error(411, 'Title is too small.');
-      }
+    if (!titleNew) {
+      throw new Meteor.Error(411, 'Title is too small.');
+    }
 
-      if (titleSearch) {
-          Site_info.update({ _id: titleSearch._id} , { title : titleNew});
-      }
-      else{
-          Site_info.insert({ title: titleNew})
-      }
+    if (titleSearch) {
+      Site_info.update({ _id: titleSearch._id } ,
+                       { title : titleNew });
+    } else {
+      Site_info.insert({ title: titleNew });
+    }
   }
 });

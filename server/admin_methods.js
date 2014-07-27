@@ -13,7 +13,7 @@ Meteor.methods({
     Pages.insert({ name: pageName });
   },
 
-  changeTitle: function(titleNew) {
+  changeTitle: function (titleNew) {
     var titleSearch = SiteInfo.findOne();
 
     if (!titleNew) {

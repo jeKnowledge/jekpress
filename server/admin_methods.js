@@ -14,17 +14,17 @@ Meteor.methods({
   },
 
   changeTitle: function(titleNew) {
-    var titleSearch = Site_info.findOne();
+    var titleSearch = SiteInfo.findOne();
 
     if (!titleNew) {
       throw new Meteor.Error(411, 'Title is too small.');
     }
 
     if (titleSearch) {
-      Site_info.update({ _id: titleSearch._id } ,
-                       { title : titleNew });
+      SiteInfo.update({ _id: titleSearch._id} ,
+                      { title : titleNew });
     } else {
-      Site_info.insert({ title: titleNew });
+      SiteInfo.insert({ title: titleNew });
     }
   }
 });

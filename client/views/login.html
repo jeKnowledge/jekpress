@@ -1,0 +1,59 @@
+<!-- Main Template -->
+
+<template name="logSection">
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <div id="content">
+      <ul id="tabs" class="nav nav-tabs nav-justified" data-tabs="tabs">
+        <li class="active"><a href="#login" data-toggle="tab">Login</a></li>
+        <li><a href="#signup" data-toggle="tab">Create Account</a></li>
+      </ul>
+      <div id="my-tab-content" class="tab-content">
+        <div class="tab-pane active" id="login">
+          {{>loginForm}}
+        </div>
+        <div class="tab-pane" id="signup">
+          {{>signupForm}}
+        </div>
+      </div>
+      <p id="info-message"></p>
+    </div>
+  </div>
+</div>
+
+</template>
+
+<!-- Aux Templates -->
+
+<template name="signupForm">
+
+<form id="signup-form" action="action">
+  <input type="text" id="signup-username" placeholder="Username" class="form-control login_element"/>
+
+  <input type="password" id="signup-password" placeholder="Password" class="form-control login_element"/>
+
+  <input type="text" id="signup-email" placeholder="Email" class="form-control login_element"/>
+
+  <button type="submit" class="btn btn-success btn-block login_element">Sign Up</button>
+</form>
+
+</template>
+
+<template name="loginForm">
+
+<form id="login-form" action="action">
+  <input type="text" id="login-username" placeholder="Username" class="form-control login_element"/>
+
+  <input type="password" id="login-password" placeholder="Password" class="form-control login_element"/>
+
+  <button type="submit" class="btn btn-success btn-block login_element">Log In</button>
+</form>
+
+</template>
+
+<template name="logoutForm">
+
+<span id="logout_text">User: {{userName}} <a href="#" id="logout-form">Logout</a></span>
+
+</template>

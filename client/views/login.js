@@ -57,5 +57,5 @@ Template.logoutForm.events({
 });
 
 Template.logoutForm.userName = function () {
-  Meteor.user().name;
+  return Meteor.user().username;
 };

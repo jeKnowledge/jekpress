@@ -8,6 +8,4 @@ Meteor.startup(function () {
   if (!Meteor.users.findOne({ username: 'admin' })) {
     Accounts.createUser({ username: 'admin', password: 'admin' });
   }
-
-  console.log('There are ' + Meteor.users.find().count() + ' users');
 });

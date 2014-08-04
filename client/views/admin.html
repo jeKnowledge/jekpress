@@ -1,26 +1,40 @@
 <template name="admin">
-  <div class="container">
-    <p id="information-paragraph"></p>
-    
-    <form role="form" class="form-inline" id="add-page-form" action="action">
-      <div class="form-group">
-        <h2>New Page</h2>
 
-        <input type="text" placeholder="New page name" id="new-page-name" class="form-control"/>
+  {{#if currentUser}}
+    {{> adminContent}}
+  {{else}}
+    {{> logSection}}
+  {{/if}}
 
-        <button type="submit" class="btn btn-default">Add Page</button>
-      </div>
-    </form>
+</template>
 
-    <form role="form" class="form-inline" id="change-title-form" action="action">
-      <div class="form-group">
-        <h2>Change title</h2>
+<template name="adminContent">
 
-        <input type="text" placeholder="New website title" id="new-website-title" class="form-control"/>
+<div class="container">
+  <p id="information-paragraph"></p>
 
-        <button type="submit" class="btn btn-default">Change title</button>
-      </div>
-    </form>
+  <form role="form" class="form-inline" id="add-page-form" action="action">
+    <div class="form-group">
+      <h2>New Page</h2>
 
-  </div>
+      <input type="text" placeholder="New page name" id="new-page-name" class="form-control"/>
+
+      <button type="submit" class="btn btn-default">Add Page</button>
+    </div>
+  </form>
+
+  <form role="form" class="form-inline" id="change-title-form" action="action">
+    <div class="form-group">
+      <h2>Change title</h2>
+
+      <input type="text" placeholder="New website title" id="new-website-title" class="form-control"/>
+
+      <button type="submit" class="btn btn-default">Change title</button>
+    </div>
+  </form>
+
+  {{> logoutForm}}
+
+</div>
+
 </template>

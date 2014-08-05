@@ -7,7 +7,7 @@ Template.signupForm.events({
       password: $('#signup-password').val(),
 
       profile: {
-        email: template.find('#signup-email').val()
+        email: $('#signup-email').val()
         // Other required field values can go here
       }
     }, function (error) {
